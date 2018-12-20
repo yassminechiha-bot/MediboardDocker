@@ -1,0 +1,22 @@
+version: "3"
+services:
+  mediboard:
+    image: mediboard
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mediboard_db
+    ports:
+      - "80:80"
+
+  mediboard_db:
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: mediboard_db
+      MYSQL_USER: mediuser
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
