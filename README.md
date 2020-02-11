@@ -1,4 +1,4 @@
-# Mediboard
+# Mediboard 🏥
 
 Mediboard is an open-source software for medical service management: https://www.mediboard.org
 
