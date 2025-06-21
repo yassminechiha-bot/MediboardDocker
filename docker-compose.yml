@@ -1,7 +1,7 @@
 version: "3"
+
 services:
   mediboard:
-    image: mediboard
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,6 +9,8 @@ services:
       - mediboard_db
     ports:
       - "80:80"
+    networks:
+      - mediboard_net
 
   mediboard_db:
     image: mysql:5.6
@@ -19,4 +21,9 @@ services:
       MYSQL_USER: mediuser
       MYSQL_PASSWORD: test
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    networks:
+      - mediboard_net
+
+networks:
+  mediboard_net:
